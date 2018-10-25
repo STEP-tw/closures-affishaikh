@@ -62,7 +62,17 @@ const makeFiboGenerator = function(providedNumberOne, providedNumberTwo) {
     return currentFiboNumber;
   }
 };
-const makeCycler = undefined;
+
+const makeCycler = function(elementsToBeCycled) {
+  let index = 0;
+  let initialElementsToBeCycled = [].concat(elementsToBeCycled); 
+  return function() {
+    let elementIndex = index%initialElementsToBeCycled.length;
+    index++;
+    return initialElementsToBeCycled[elementIndex];
+  }
+};
+
 const curry = undefined;
 const compose = undefined;
 

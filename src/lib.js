@@ -79,7 +79,12 @@ const curry = function(func, initialValue) {
   }
 };
 
-const compose = undefined;
+const compose = function(func1, func2) {
+   return function(collection1, collection2) {
+    let lengthOfCollection = func2(collection1, collection2); 
+    return func1(lengthOfCollection);
+  }
+};
 
 exports.makeConstant=makeConstant;
 exports.makeCounterFromZero=makeCounterFromZero;

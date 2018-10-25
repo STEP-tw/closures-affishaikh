@@ -29,7 +29,20 @@ const makeDeltaTracker = function(initialDeltaValue) {
   }
 };
 
-const makeFiboGenerator = undefined;
+const makeFiboGenerator = function(providedNumber) {
+  let num1 = -providedNumber;
+  let num2 = providedNumber;
+  if(!providedNumber) {
+    num1 = -1;
+    num2 = 1;
+  }
+  return function() {
+    let currentFiboNumber = num1 + num2;
+    num1 = num2;
+    num2 = currentFiboNumber;
+    return currentFiboNumber;
+  }
+};
 const makeCycler = undefined;
 const curry = undefined;
 const compose = undefined;

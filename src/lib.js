@@ -73,7 +73,12 @@ const makeCycler = function(elementsToBeCycled) {
   }
 };
 
-const curry = undefined;
+const curry = function(func, initialValue) {
+  return function(lowerLimit, upperLimit) {
+    return func(initialValue, lowerLimit, upperLimit);  
+  }
+};
+
 const compose = undefined;
 
 exports.makeConstant=makeConstant;

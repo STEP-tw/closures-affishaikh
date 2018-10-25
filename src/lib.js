@@ -29,12 +29,31 @@ const makeDeltaTracker = function(initialDeltaValue) {
   }
 };
 
-const makeFiboGenerator = function(providedNumber) {
-  let num1 = -providedNumber;
-  let num2 = providedNumber;
-  if(!providedNumber) {
+const makeFiboGenerator = function(providedNumberOne, providedNumberTwo) {
+  let num1 = -providedNumberOne;
+  let num2 = providedNumberOne;
+  if(!providedNumberOne) {
     num1 = -1;
     num2 = 1;
+  }
+  if(providedNumberTwo) {
+    let count = 1;
+    let num1 = providedNumberOne;
+    let num2 = providedNumberTwo;
+    return function() {
+      if(count == 1) {
+        count++;
+        return (num1 + 0);
+      }
+      if(count == 2) {
+        count++;
+        return (num2 + 0);
+      }
+      let currentFiboNumber = num1 + num2;
+      num1 = num2;
+      num2 = currentFiboNumber;
+      return currentFiboNumber;
+    }
   }
   return function() {
     let currentFiboNumber = num1 + num2;
